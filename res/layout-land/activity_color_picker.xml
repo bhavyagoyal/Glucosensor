@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayoutMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" android:baselineAligned="false">
+
+    
+    <FrameLayout
+        android:id="@+id/frameLayoutImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+        
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/image_description"
+            android:scaleType="fitStart"
+            android:src="@drawable/bg_init" />
+                <com.nauj27.android.colorpicker.DragRectView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/dragRect" />
+                	    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:textSize="20dp"
+        android:textColor="@color/red"
+        android:text="" />
+                
+                
+	<Button
+	    android:id="@+id/helppage"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+	    android:text="@string/buttontext" />
+	<Button
+	    android:id="@+id/camera"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+	    android:text="@string/buttontext2" />
+	    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:textSize="20dp"
+        android:textColor="@color/red"        
+        android:text="@string/cbme" />
+		
+	
+        
+    </FrameLayout>
+    
+
+</LinearLayout>
