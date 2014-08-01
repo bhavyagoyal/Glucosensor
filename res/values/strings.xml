@@ -237,7 +237,7 @@
 	<string name="cbme">GLUCOSENSOR,\nCBME, IIT Delhi</string>
     <string name="color_name">Color name</string>
     <string name="title_activity_help_page2">HelpPage2</string>
-    <string name="hello_world">1.Click on the camera button to take a snapshot of the strip. Zoom in on the center of the screen and capture.\n2. Tap on the center of the strip to get the Glucose level.</string>
+    <string name="hello_world">1.Click on the Start button to take first snapshot of the strip. Zoom strip to the center of the screen and then capture. Tap on the center of the strip to reposition the red rectangle.\n2. Click on "Second Image" button after 2 min. to take second snapshot and follow the same procedure.\n3. Click "Finish" to get the glucose level. </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_hlp">Help</string>
     <string name="credits">\u00A9 Dr. Sandeep K. Jha\nCBME, IIT DELHI</string>

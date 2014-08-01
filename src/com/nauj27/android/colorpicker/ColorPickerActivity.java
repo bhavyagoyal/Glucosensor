@@ -35,9 +35,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -100,6 +100,7 @@ public class ColorPickerActivity extends Activity {
 	        		level=0;
 	        		secondR=redAverage;
 					ans = Math.pow((secondR-firstR),3.6777);
+					ans = Math.floor(ans*1000)/1000;
 					TextView vi = (TextView) findViewById(R.id.textView4);
 					vi.setText("Glucose "+ans+" mg/dl");
 	        		c.setText("StartAgain");
@@ -153,7 +154,7 @@ public class ColorPickerActivity extends Activity {
 			}
 		}
 		Toast.makeText(
-				this, "Tap on camera button above to take a picture",
+				this, "Tap on Start button to take a picture of the strip",
 				Toast.LENGTH_LONG).show();
 
 
@@ -305,49 +306,49 @@ public class ColorPickerActivity extends Activity {
 		return true;
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem menuItem) {
-		switch (menuItem.getItemId()) {
-		case R.id.picture_from_camera:
-			Toast.makeText(
-					this, "Zoom on the strip in the middle of the screen, capture the image and then Save", 
-					Toast.LENGTH_LONG).show();
-			Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-			photoUri = getOutputMediaFileUri();
-			if (photoUri == null) {
-				Toast.makeText(
-						this, R.string.cant_write_external_storage, 
-						Toast.LENGTH_LONG).show();
-				return true;
-			}
-			
-			intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-			startActivityForResult(intent, CAPTURE_ACTIVITY_REQUEST_CODE);
-//			Toast.makeText(this, "tap on the centre of strip" , 
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem menuItem) {
+//		switch (menuItem.getItemId()) {
+//		case R.id.picture_from_camera:
+//			Toast.makeText(
+//					this, "Zoom on the strip in the middle of the screen, capture the image and then Save", 
 //					Toast.LENGTH_LONG).show();
-
-			return true;
-			
-		case R.id.picture_from_gallery:
-			Intent intentGallery = new Intent();
-			intentGallery.setType("image/*");
-			intentGallery.setAction(Intent.ACTION_GET_CONTENT);
-			
-			startActivityForResult(
-				Intent.createChooser(
-						intentGallery, 
-						getString(R.string.select_picture)),
-				SELECT_ACTIVITY_REQUEST_CODE);
-//			Toast.makeText(this, "tap on the centre of strip" , 
-//					Toast.LENGTH_LONG).show();
-
-			return true;
-			
-		default:
-			return super.onOptionsItemSelected(menuItem);
-		}
-
-	}
+//			Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//			photoUri = getOutputMediaFileUri();
+//			if (photoUri == null) {
+//				Toast.makeText(
+//						this, R.string.cant_write_external_storage, 
+//						Toast.LENGTH_LONG).show();
+//				return true;
+//			}
+//			
+//			intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+//			startActivityForResult(intent, CAPTURE_ACTIVITY_REQUEST_CODE);
+////			Toast.makeText(this, "tap on the centre of strip" , 
+////					Toast.LENGTH_LONG).show();
+//
+//			return true;
+//			
+//		case R.id.picture_from_gallery:
+//			Intent intentGallery = new Intent();
+//			intentGallery.setType("image/*");
+//			intentGallery.setAction(Intent.ACTION_GET_CONTENT);
+//			
+//			startActivityForResult(
+//				Intent.createChooser(
+//						intentGallery, 
+//						getString(R.string.select_picture)),
+//				SELECT_ACTIVITY_REQUEST_CODE);
+////			Toast.makeText(this, "tap on the centre of strip" , 
+////					Toast.LENGTH_LONG).show();
+//
+//			return true;
+//			
+//		default:
+//			return super.onOptionsItemSelected(menuItem);
+//		}
+//
+//	}
 	
 	OnTouchListener onTouchListener = new OnTouchListener() {
 		@Override
@@ -359,7 +360,7 @@ public class ColorPickerActivity extends Activity {
 					Log.d("got it","a");
 					//ans = Math.pow(2, 4);
 					TextView v = (TextView) findViewById(R.id.textView4);
-					v.setText("R "+redAverage);
+					v.setText("");
 			}
 			return true;
 		}
